@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Handler
 import com.example.todolistapp.R
+import com.google.firebase.auth.FirebaseAuth
 
 class SplashScreenActivity : AppCompatActivity() {
     private val delayedTime: Long = 3000
@@ -15,13 +16,12 @@ class SplashScreenActivity : AppCompatActivity() {
 
         var handler = Handler()
         handler.postDelayed({
-            startActivity(Intent(this,RegisterActivity::class.java ))
-//            checkLogin()
+            checkLogin()
         }, delayedTime)
 
     }
 
-//    private fun checkLogin() {
-//        TODO("Not yet implemented")
-//    }
+    private fun checkLogin() {
+        startActivity(Intent(this, MainActivity::class.java))
+    }
 }

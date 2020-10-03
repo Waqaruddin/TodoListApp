@@ -1,20 +1,48 @@
-<LinearLayout android:layout_width="match_parent"
+<androidx.cardview.widget.CardView android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:orientation="vertical"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_margin="5dp"
+    app:cardCornerRadius="10dp"
+    app:cardElevation="10dp"
+
     xmlns:android="http://schemas.android.com/apk/res/android">
 
 
-    <TextView
-        android:layout_width="match_parent"
+    <RelativeLayout android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/text_view_task_title"
-        android:text="Task1"
-        android:textSize="25dp"
-        android:layout_gravity="center"
-        android:gravity="center"
-        android:layout_margin="20dp"
-        android:layout_marginLeft="20dp"
-        />
+        xmlns:android="http://schemas.android.com/apk/res/android">
 
 
-</LinearLayout>
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/radio_button"
+            android:layout_toLeftOf="@id/text_view_task_title"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/text_view_task_title"
+            android:text="Task1"
+            android:textSize="25dp"
+            android:layout_centerInParent="true"
+            android:layout_centerHorizontal="true"
+            android:layout_margin="20dp"
+            />
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Delete"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:id="@+id/button_delete"/>
+
+
+    </RelativeLayout>
+
+</androidx.cardview.widget.CardView>
+

@@ -7,6 +7,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.todolistapp.R
 import com.example.todolistapp.adapters.AdapterTask
 import com.example.todolistapp.models.Task
+import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.*
 import kotlinx.android.synthetic.main.activity_main.*
 
@@ -26,6 +27,11 @@ class MainActivity : AppCompatActivity() {
     private fun init() {
         button_add_task.setOnClickListener {
             startActivity(Intent(this, AddTaskActivity::class.java))
+        }
+        button_logout.setOnClickListener {
+            var auth = FirebaseAuth.getInstance()
+            auth.signOut()
+            startActivity(Intent(this, LoginActivity::class.java))
         }
 
         getData()

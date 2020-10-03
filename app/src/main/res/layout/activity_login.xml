@@ -1,52 +1,86 @@
-<RelativeLayout android:layout_width="match_parent"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:android="http://schemas.android.com/apk/res/android">
+    android:background="#778899">
 
 
-    <EditText
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_margin="10dp"
+        android:text="Sign In"
+        android:textColor="#000"
+        android:textSize="32dp"
+        android:textStyle="italic" />
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/input_layout_email"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Email"
-        android:layout_margin="20dp"
-        android:layout_centerInParent="true"
-        android:id="@+id/edit_text_email"/>
+        android:layout_centerInParent="true">
 
+        <EditText
+            android:id="@+id/edit_text_email"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:layout_margin="20dp"
+            android:hint="Email"
+            android:padding="10dp" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+
+<com.google.android.material.textfield.TextInputLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:id="@+id/input_layout_password"
+    android:layout_centerInParent="true"
+    android:layout_below="@id/input_layout_email">
 
     <EditText
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="Password"
-        android:layout_margin="20dp"
-        android:layout_centerInParent="true"
         android:id="@+id/edit_text_password"
-        android:layout_below="@id/edit_text_email"/>
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/edit_text_email"
+        android:layout_centerInParent="true"
+        android:layout_margin="20dp"
+        android:hint="Password"
+        android:padding="10dp" />
+
+</com.google.android.material.textfield.TextInputLayout>
+
 
     <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerInParent="true"
-        android:layout_below="@id/edit_text_password"
-        android:text="Login"
         android:id="@+id/button_login"
-        android:layout_margin="20dp"/>
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/input_layout_password"
+        android:layout_centerInParent="true"
+        android:layout_margin="20dp"
+        android:background="@drawable/button_rounded"
+        android:text="Sign in"
+        android:textAllCaps="false" />
 
     <TextView
+        android:id="@+id/text_view_already"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_centerInParent="true"
         android:layout_below="@id/button_login"
+        android:layout_centerInParent="true"
         android:text="New user?"
-        android:id="@+id/text_view_already"/>
+        android:textColor="#000" />
+
     <TextView
+        android:id="@+id/text_view_click_here"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_centerInParent="true"
         android:layout_below="@id/button_login"
-        android:text="Click here"
+        android:layout_centerInParent="true"
         android:layout_marginLeft="10dp"
         android:layout_toRightOf="@id/text_view_already"
-        android:id="@+id/text_view_click_here"/>
-
+        android:text="Click here"
+        android:textColor="#000" />
 
 
 </RelativeLayout>

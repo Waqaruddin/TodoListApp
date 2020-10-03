@@ -1,6 +1,17 @@
 <RelativeLayout android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#778899"
     xmlns:android="http://schemas.android.com/apk/res/android">
+
+<TextView
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_centerHorizontal="true"
+    android:text="Sign Up"
+    android:textSize="32dp"
+    android:layout_margin="10dp"
+    android:textStyle="italic"
+    android:textColor="#000"/>
 
 
 
@@ -8,6 +19,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="Email"
+        android:background="#fff"
+        android:padding="10dp"
         android:layout_margin="20dp"
         android:layout_centerInParent="true"
         android:id="@+id/edit_text_email"/>
@@ -17,18 +30,22 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="Password"
+        android:background="#fff"
+        android:padding="10dp"
         android:layout_margin="20dp"
         android:layout_centerInParent="true"
         android:id="@+id/edit_text_password"
         android:layout_below="@id/edit_text_email"/>
 
     <Button
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_centerInParent="true"
         android:layout_below="@id/edit_text_password"
-        android:text="Register"
+        android:text="Sign up"
+        android:textAllCaps="false"
         android:id="@+id/button_register"
+        android:background="@drawable/button_rounded"
         android:layout_margin="20dp"/>
 
     <TextView

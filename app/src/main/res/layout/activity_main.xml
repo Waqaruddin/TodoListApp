@@ -10,13 +10,30 @@
         android:id="@+id/recycler_view"/>
 
 
+<!--    <Button-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:id="@+id/button_add_task"-->
+<!--        android:layout_alignParentRight="true"-->
+<!--        android:layout_centerInParent="true"-->
+<!--        android:text="Add"/>-->
+
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/button_add_task"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|end"
+        android:layout_alignParentRight="true"
+        android:layout_centerInParent="true"
+        android:src="@drawable/ic_baseline_add_24" />
+
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/button_add_task"
-        android:layout_alignParentRight="true"
         android:layout_centerInParent="true"
-        android:text="Add"/>
+        android:text="logout"
+        android:id="@+id/button_logout"/>
 
 
 

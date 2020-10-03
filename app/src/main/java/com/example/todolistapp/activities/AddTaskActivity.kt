@@ -25,6 +25,7 @@ class AddTaskActivity : AppCompatActivity() {
             var taskId = databaseReference.push().key
             databaseReference.child(taskId!!).setValue(task)
             Toast.makeText(applicationContext, "Inserted", Toast.LENGTH_SHORT).show()
+
             finish()
         }
     }
