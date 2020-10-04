@@ -1,5 +1,6 @@
 <RelativeLayout android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#CD5C5C"
     xmlns:android="http://schemas.android.com/apk/res/android">
 
 
@@ -24,15 +25,17 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="bottom|end"
-        android:layout_alignParentRight="true"
         android:layout_centerInParent="true"
         android:src="@drawable/ic_baseline_add_24" />
 
     <Button
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_centerInParent="true"
         android:text="logout"
+        android:layout_alignParentBottom="true"
+        android:layout_margin="20dp"
+        android:background="@drawable/button_rounded"
         android:id="@+id/button_logout"/>
 
 
