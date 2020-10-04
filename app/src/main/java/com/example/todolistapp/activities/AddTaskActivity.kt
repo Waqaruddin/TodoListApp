@@ -19,14 +19,20 @@ class AddTaskActivity : AppCompatActivity() {
         button_add_task.setOnClickListener {
             var title = edit_text_task.text.toString()
             var description = edit_text_decsription.text.toString()
-            var task = Task(title, description)
-            var databaseReference = FirebaseDatabase.getInstance().getReference("tasks")
 
-            var taskId = databaseReference.push().key
-            databaseReference.child(taskId!!).setValue(task)
-            Toast.makeText(applicationContext, "Inserted", Toast.LENGTH_SHORT).show()
+            if(title != ""){
+                var task = Task(title, description)
+                var databaseReference = FirebaseDatabase.getInstance().getReference("tasks")
 
-            finish()
+                var taskId = databaseReference.push().key
+                databaseReference.child(taskId!!).setValue(task)
+                Toast.makeText(applicationContext, "Task has been inserted", Toast.LENGTH_SHORT).show()
+                finish()
+            }else{
+                Toast.makeText(applicationContext, "Title is required", Toast.LENGTH_SHORT).show()
+            }
+
+
         }
     }
 }

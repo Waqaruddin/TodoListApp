@@ -3,28 +3,50 @@
     android:background="#CD5C5C"
     xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <EditText
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/input_layout_email"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/edit_text_task"
         android:layout_centerHorizontal="true"
-        android:hint="Title"
-        android:background="#fff"
-        android:layout_margin="20dp"
-        android:textSize="32dp"/>
+        android:layout_alignParentTop="true"
+        android:layout_margin="25dp"
+        android:layout_centerInParent="true">
 
-    <EditText
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/edit_text_task"
+            android:layout_centerHorizontal="true"
+            android:hint="Title"
+            android:background="#fff"
+            android:layout_margin="20dp"
+            android:textSize="32dp"/>
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/edit_text_decsription"
-        android:textSize="20dp"
-        android:inputType="textMultiLine"
-        android:lines="5"
-        android:layout_margin="20dp"
-        android:background="#fff"
-        android:layout_centerHorizontal="true"
-        android:layout_below="@id/edit_text_task"
-        android:hint="Enter Description"/>
+        android:id="@+id/input_layout_password"
+        android:layout_centerInParent="true"
+        android:layout_below="@id/input_layout_email">
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/edit_text_decsription"
+            android:textSize="20dp"
+            android:inputType="textMultiLine"
+            android:lines="5"
+            android:layout_margin="20dp"
+            android:background="#fff"
+            android:layout_centerHorizontal="true"
+            android:layout_below="@id/edit_text_task"
+            android:hint="Enter Description"/>
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+
 
     <Button
         android:layout_width="match_parent"

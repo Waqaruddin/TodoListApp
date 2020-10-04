@@ -24,6 +24,7 @@ class AdapterTask (var mContext:Context, var mList:ArrayList<Task>, private var 
                 itemView.button_delete.visibility = View.INVISIBLE
             }
             itemView.button_delete.setOnClickListener {
+
                 var databaseReference = FirebaseDatabase.getInstance().getReference("tasks")
                 databaseReference.child(keysList[position]).setValue(null)
                 Toast.makeText(mContext, "Task deleted successfully",Toast.LENGTH_SHORT).show()

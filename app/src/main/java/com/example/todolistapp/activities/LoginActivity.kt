@@ -32,7 +32,7 @@ class LoginActivity : AppCompatActivity() {
                             Toast.makeText(applicationContext, "Login Successful", Toast.LENGTH_SHORT).show()
                             startActivity(Intent(applicationContext, MainActivity::class.java))
                         }else{
-                            Toast.makeText(applicationContext, "Incorred email or password", Toast.LENGTH_SHORT).show()
+                            Toast.makeText(applicationContext, "Incorrect email or password", Toast.LENGTH_SHORT).show()
                         }
                     }
 
