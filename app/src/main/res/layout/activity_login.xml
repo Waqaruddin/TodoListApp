@@ -1,6 +1,7 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="#778899">
 
 
@@ -18,6 +19,7 @@
         android:id="@+id/input_layout_email"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        app:hintTextAppearance="@style/TextLabel"
         android:layout_centerInParent="true">
 
         <EditText
@@ -37,6 +39,7 @@
     android:layout_height="wrap_content"
     android:id="@+id/input_layout_password"
     android:layout_centerInParent="true"
+    app:hintTextAppearance="@style/TextLabel"
 
     android:layout_below="@id/input_layout_email">
 

@@ -1,5 +1,6 @@
 <RelativeLayout android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="#CD5C5C"
     xmlns:android="http://schemas.android.com/apk/res/android">
 
@@ -10,6 +11,8 @@
         android:layout_centerHorizontal="true"
         android:layout_alignParentTop="true"
         android:layout_margin="25dp"
+        style="@style/TextLabel"
+        app:hintTextAppearance="@style/TextLabel"
         android:layout_centerInParent="true">
 
         <EditText
@@ -29,6 +32,7 @@
         android:layout_height="wrap_content"
         android:id="@+id/input_layout_password"
         android:layout_centerInParent="true"
+        app:hintTextAppearance="@style/TextLabel"
         android:layout_below="@id/input_layout_email">
 
         <EditText
@@ -48,15 +52,15 @@
 
 
 
-    <Button
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/button_add_task"
-        android:layout_centerInParent="true"
-        android:text="Add"
-        android:layout_margin="20dp"
-        android:background="@drawable/button_rounded"/>
 
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/button_add_task"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|end"
+        android:layout_centerInParent="true"
+        android:layout_margin="20dp"
+        android:src="@drawable/ic_baseline_done_24"/>
 
 
 </RelativeLayout>
