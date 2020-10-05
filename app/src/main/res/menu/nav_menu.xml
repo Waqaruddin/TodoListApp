@@ -5,9 +5,6 @@
     <item android:title="My Account"
         android:id="@+id/item_account"/>
 
-    <item android:title="My Orders"
-        android:id="@+id/item_orders"/>
-
     <item android:title="Settings"
         android:id="@+id/item_settings"/>
 
