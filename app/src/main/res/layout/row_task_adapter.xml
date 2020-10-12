@@ -10,37 +10,83 @@
 
     <RelativeLayout android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:padding="10dp"
+        android:layout_margin="2dp"
         xmlns:android="http://schemas.android.com/apk/res/android">
 
 
-        <RadioButton
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/radio_button"
-            android:layout_toLeftOf="@id/text_view_task_title"
-            android:layout_alignParentLeft="true"
-            android:layout_centerVertical="true"
-            />
+<!--        <RadioButton-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:id="@+id/radio_button"-->
+<!--            android:layout_toLeftOf="@id/text_view_task_title"-->
+<!--            android:layout_alignParentLeft="true"-->
+<!--            android:layout_centerVertical="true"-->
+<!--            />-->
+
+        <Button
+            android:background="@drawable/ic_baseline_done_24_white"
+            android:layout_width="38dp"
+            android:layout_height="38dp"
+            android:id="@+id/button_done_task"
+            android:layout_marginTop="2dp"
+            android:layout_marginLeft="2dp"
+            android:layout_marginStart="2dp"/>
+
+        <ImageView
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:visibility="invisible"
+            android:id="@+id/image_view_done_task"
+            android:background="@drawable/ic_baseline_done_24"/>
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/text_view_task_title"
             android:text="Task1"
-            android:textSize="25dp"
+            android:textSize="20dp"
             android:layout_centerInParent="true"
             android:layout_centerHorizontal="true"
-            android:layout_margin="20dp"
+            android:layout_marginTop="18dp"
+            android:textStyle="bold"
+            android:layout_marginLeft="50dp"
             />
-        <Button
+
+        <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Delete"
+            android:id="@+id/text_view_task_description"
+            android:layout_below="@id/text_view_task_title"
+            android:textSize="18dp"
+            android:layout_centerHorizontal="true"
+            />
+        <Button
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:background="@drawable/ic_baseline_cancel_24"
             android:layout_alignParentEnd="true"
             android:layout_alignParentRight="true"
-            android:layout_centerVertical="true"
             android:id="@+id/button_delete"/>
 
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:text="status"
+            android:textSize="15sp"
+            android:layout_marginRight="120dp"
+            android:layout_marginEnd="120dp"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/text_view_status"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:text="incomplete"
+            android:layout_marginEnd="40dp"
+            android:layout_marginRight="40dp"/>
 
     </RelativeLayout>
 

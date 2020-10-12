@@ -1,9 +1,13 @@
 package com.example.todolistapp.adapters
 
+import android.app.AlertDialog
 import android.content.Context
+import android.content.DialogInterface
 import android.text.Layout
 import android.view.LayoutInflater
 import android.view.View
+import android.view.View.INVISIBLE
+import android.view.View.VISIBLE
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
@@ -16,19 +20,61 @@ class AdapterTask (var mContext:Context, var mList:ArrayList<Task>, private var 
 
     inner class MyViewHolder(itemView: View):RecyclerView.ViewHolder(itemView){
         fun bind(task:Task, position: Int){
+            var databaseReference = FirebaseDatabase.getInstance().getReference("tasks")
+            var status = task.status
+            if(status == "complete"){
+                itemView.image_view_done_task.visibility = VISIBLE
+            }
             itemView.text_view_task_title.text = task.title
+            itemView.text_view_task_description.text = task.description
+            itemView.text_view_status.text = task.status
 
-            if(itemView.radio_button.isChecked){
-                itemView.button_delete.visibility = View.VISIBLE
-            }else{
-                itemView.button_delete.visibility = View.INVISIBLE
+            itemView.button_done_task.setOnClickListener {
+                if(status == "incomplete"){
+                    itemView.image_view_done_task.visibility = VISIBLE
+                    databaseReference.child(keysList[position]).setValue(Task(task.title, task.description, "complete"))
+                    itemView.text_view_status.text = task.status
+                }else{
+                    itemView.image_view_done_task.visibility = INVISIBLE
+                    databaseReference.child(keysList[position]).setValue(Task(task.title, task.description, "incomplete"))
+                    itemView.text_view_status.text = task.status
+                }
             }
+
             itemView.button_delete.setOnClickListener {
+                var builder = AlertDialog.Builder(mContext)
+                builder.setTitle("Delete Task")
+                builder.setMessage("Are you sure you want to delete this task?")
+                builder.setNegativeButton("No", object :DialogInterface.OnClickListener{
+                    override fun onClick(dialog: DialogInterface?, p1: Int) {
+                        dialog?.dismiss()
+                    }
 
-                var databaseReference = FirebaseDatabase.getInstance().getReference("tasks")
-                databaseReference.child(keysList[position]).setValue(null)
-                Toast.makeText(mContext, "Task deleted successfully",Toast.LENGTH_SHORT).show()
+                })
+                builder.setPositiveButton("Yes", object:DialogInterface.OnClickListener{
+                    override fun onClick(dialog: DialogInterface?, p1: Int) {
+                        databaseReference.child(keysList[position]).setValue(null)
+                        Toast.makeText(mContext, "Task deleted", Toast.LENGTH_SHORT).show()
+                    }
+
+                })
+                var myAlertDialog = builder.create()
+                myAlertDialog.show()
+
             }
+
+
+//            if(itemView.radio_button.isChecked){
+//                itemView.button_delete.visibility = View.VISIBLE
+//            }else{
+//                itemView.button_delete.visibility = View.INVISIBLE
+//            }
+//            itemView.button_delete.setOnClickListener {
+//
+//                var databaseReference = FirebaseDatabase.getInstance().getReference("tasks")
+//                databaseReference.child(keysList[position]).setValue(null)
+//                Toast.makeText(mContext, "Task deleted successfully",Toast.LENGTH_SHORT).show()
+//            }
         }
     }
 

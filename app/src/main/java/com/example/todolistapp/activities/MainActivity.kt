@@ -46,6 +46,12 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
 
     private fun init() {
         setupToolbar()
+        getData()
+        adapterTask = AdapterTask(this, mList, keysList)
+        recycler_view.layoutManager = LinearLayoutManager(this)
+        recycler_view.adapter = adapterTask
+
+
         navView = nav_view
         drawerLayout = drawer_layout
         navView.setNavigationItemSelectedListener(this)
@@ -63,10 +69,7 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         var headerView = navView.getHeaderView(0)
         headerView.text_view_header_email.text = userEmail
 
-        getData()
-        adapterTask = AdapterTask(this, mList, keysList)
-        recycler_view.layoutManager = LinearLayoutManager(this)
-        recycler_view.adapter = adapterTask
+
 
         var toggle = ActionBarDrawerToggle(this, drawerLayout, tool_bar, 0, 0)
         drawerLayout.addDrawerListener(toggle)
