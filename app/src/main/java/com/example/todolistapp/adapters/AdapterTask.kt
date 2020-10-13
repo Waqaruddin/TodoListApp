@@ -16,42 +16,46 @@ import com.example.todolistapp.models.Task
 import com.google.firebase.database.FirebaseDatabase
 import kotlinx.android.synthetic.main.row_task_adapter.view.*
 
-class AdapterTask (var mContext:Context, var mList:ArrayList<Task>, private var keysList:ArrayList<String>):RecyclerView.Adapter<AdapterTask.MyViewHolder>(){
+class AdapterTask(
+    var mContext: Context,
+    var mList: ArrayList<Task>,
+    private var keysList: ArrayList<String>
+) : RecyclerView.Adapter<AdapterTask.MyViewHolder>() {
 
-    inner class MyViewHolder(itemView: View):RecyclerView.ViewHolder(itemView){
-        fun bind(task:Task, position: Int){
+    inner class MyViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+        fun bind(task: Task, position: Int) {
             var databaseReference = FirebaseDatabase.getInstance().getReference("tasks")
             var status = task.status
-            if(status == "complete"){
-                itemView.image_view_done_task.visibility = VISIBLE
-            }
+
             itemView.text_view_task_title.text = task.title
             itemView.text_view_task_description.text = task.description
             itemView.text_view_status.text = task.status
 
-            itemView.button_done_task.setOnClickListener {
-                if(status == "incomplete"){
-                    itemView.image_view_done_task.visibility = VISIBLE
-                    databaseReference.child(keysList[position]).setValue(Task(task.title, task.description, "complete"))
+            itemView.check_box.setOnClickListener {
+                if (status == "incomplete") {
+                    databaseReference.child(keysList[position])
+                        .setValue(Task(task.title, task.description, "complete"))
                     itemView.text_view_status.text = task.status
-                }else{
-                    itemView.image_view_done_task.visibility = INVISIBLE
-                    databaseReference.child(keysList[position]).setValue(Task(task.title, task.description, "incomplete"))
+                } else {
+                    databaseReference.child(keysList[position])
+                        .setValue(Task(task.title, task.description, "incomplete"))
                     itemView.text_view_status.text = task.status
                 }
+
             }
+
 
             itemView.button_delete.setOnClickListener {
                 var builder = AlertDialog.Builder(mContext)
                 builder.setTitle("Delete Task")
                 builder.setMessage("Are you sure you want to delete this task?")
-                builder.setNegativeButton("No", object :DialogInterface.OnClickListener{
+                builder.setNegativeButton("No", object : DialogInterface.OnClickListener {
                     override fun onClick(dialog: DialogInterface?, p1: Int) {
                         dialog?.dismiss()
                     }
 
                 })
-                builder.setPositiveButton("Yes", object:DialogInterface.OnClickListener{
+                builder.setPositiveButton("Yes", object : DialogInterface.OnClickListener {
                     override fun onClick(dialog: DialogInterface?, p1: Int) {
                         databaseReference.child(keysList[position]).setValue(null)
                         Toast.makeText(mContext, "Task deleted", Toast.LENGTH_SHORT).show()
@@ -63,18 +67,6 @@ class AdapterTask (var mContext:Context, var mList:ArrayList<Task>, private var 
 
             }
 
-
-//            if(itemView.radio_button.isChecked){
-//                itemView.button_delete.visibility = View.VISIBLE
-//            }else{
-//                itemView.button_delete.visibility = View.INVISIBLE
-//            }
-//            itemView.button_delete.setOnClickListener {
-//
-//                var databaseReference = FirebaseDatabase.getInstance().getReference("tasks")
-//                databaseReference.child(keysList[position]).setValue(null)
-//                Toast.makeText(mContext, "Task deleted successfully",Toast.LENGTH_SHORT).show()
-//            }
         }
     }
 
@@ -92,7 +84,7 @@ class AdapterTask (var mContext:Context, var mList:ArrayList<Task>, private var 
         return mList.size
     }
 
-    fun setData(l:ArrayList<Task>){
+    fun setData(l: ArrayList<Task>) {
         mList = l
         notifyDataSetChanged()
     }
